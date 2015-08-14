@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 root "pages#home"
 get "about" => "pages#about"  #creates about_path
+get "test" => "pages#test"  #creates test_path
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
