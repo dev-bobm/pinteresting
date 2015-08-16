@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5p273'
+ruby '2.1.5'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Bootstrap
 gem 'bootstrap-sass'
+
+#devise (authentication)
+gem 'devise', '~> 3.5.2'
 
 
 # Use ActiveModel has_secure_password
