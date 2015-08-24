@@ -29,6 +29,10 @@ gem 'bootstrap-sass'
 #devise (authentication)
 gem 'devise', '~> 3.5.2'
 
+#paperclip
+
+gem 'paperclip', '~> 4.2'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
