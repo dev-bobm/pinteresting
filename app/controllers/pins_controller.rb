@@ -1,5 +1,7 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /pins
   # GET /pins.json
@@ -14,7 +16,8 @@ class PinsController < ApplicationController
 
   # GET /pins/new
   def new
-    @pin = Pin.new
+    # Was Pin.new. Aangezien er nu een association is kun je ook vanuuit de user naar haar/zijn pins en daar een nieuwe maken met build
+    @pin = current_user.pins.build
   end
 
   # GET /pins/1/edit
@@ -24,7 +27,7 @@ class PinsController < ApplicationController
   # POST /pins
   # POST /pins.json
   def create
-    @pin = Pin.new(pin_params)
+    @pin = current_user.pins.build(pin_params)
 
 # BM respond to en format / format.json nodig om ook via json de resource te kunnen benaderen
 
@@ -79,6 +82,11 @@ class PinsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pin
       @pin = Pin.find(params[:id])
+    end
+
+    def correct_user
+      @pin = current_user.pins.find_by(id: params[:id])
+      redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
