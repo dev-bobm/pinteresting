@@ -40,6 +40,10 @@ gem 'aws-sdk', '< 2.0'
 # jQuery Masonry 
 gem 'masonry-rails', '~> 0.2.4'
 
+# pagnate
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
+
 
 
 # Use ActiveModel has_secure_password
